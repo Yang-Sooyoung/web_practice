@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>노드 다루기-each()</title>
+    <script src="libs/jquery-3.5.1.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            //순차적으로 노드를 접근하여 그 인덱스를 출력하고 있다.
+            // $(".container li").each(function(index){
+            //     document.write("index값 : " + index + "<br/>");
+            // });
+
+            //순차적으로 노드를 접근하여 그 인덱스와 HTMLLiElement를 출력하고 있다.
+            //jQuery객체.textContent를 하게 되면 해당한는 값을 출력을 할 수 있다.    
+            $(".container li").each(function(index, item){
+                document.write("index값 : " + index +  ", " + item.textContent + "<br/>");
+            });
+        });
+    </script>
+</head>
+<body>
+    <ul class="container">
+        <li>박지성</li>
+        <li>손흥민</li>
+        <li>기성용</li>
+        <li>안정환</li>
+        <li>황선홍</li>        
+    </ul>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>국기 롤링 배너</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .banner {
+            width: 400px;
+            height: 250px;
+            position: absolute;
+            border: 2px solid gray;
+        }
+        #banner1 {
+            top: 150px;
+            left: 150px;
+        }
+    </style>
+    <script src="libs/jquery-3.5.1.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            //배열로 국기를 저장을 한다.
+            var imgList = ["canada.png","england.png","germany.png",
+            "italia.png","korea.png","spain.png","usa.png"];
+            //배열의 인덱스 변수를 선언과 동시에 초기화
+            var index = 0;
+            //이미지 표식하기 위해서 요소를 찾아오기
+            var $banner = $(".banner");
+
+            //1초마다 한번씩 국기가 롤링 되게끔 만들기
+            setInterval(function(){
+                //다음 이미지가 나오게 하기 위해서 인덱스를 증가
+                index++;
+                //index가 imgList배열의 길이보다 같거나 크면 index를 다시 
+                //0으로 저장을 해야지만 국가 이미가 롤링이 되면서 보인다.
+                if(index >= imgList.length){
+                    index = 0;
+                }
+                //다음 이미지 이름을 구하고 있다.
+                var imgName = imgList[index];
+                //banner의 속성값이 src를 이미지 경로로 지정을 한다.
+                $banner.attr("src", "images/" + imgName);
+                //document.write(imgName + "<br/>");
+            }, 1000);
+        });
+    </script>
+</head>
+<body>
+    <img src="images/korea.png" class="banner" id="banner1">
+</body>
+</html>

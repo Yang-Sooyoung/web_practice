@@ -1,0 +1,41 @@
+@charset "utf-8";
+
+/* Reset CSS */
+body, h1, h2, h3, h4, h5, h6, p, ul, ol {
+    margin: 0;
+    padding: 0;
+}
+ul, ol {
+    list-style: none;
+}
+a {
+    text-decoration: none;
+}
+img {
+    vertical-align: top;
+}
+
+/* 가이드에 언급된 CSS */
+body {
+    background-color: #f2f2f2;
+    color: #333;
+}
+a {
+    color: #333;
+}
+#header {
+    position: relative;
+}
+#header .logo {
+    float: left;
+}
+#header .menu {
+    height: 100px;
+}
+#gnb {
+    position: absolute;
+    right: 0px;
+    top:20px;
+    z-index: 9999;
+    height: 80px;
+}

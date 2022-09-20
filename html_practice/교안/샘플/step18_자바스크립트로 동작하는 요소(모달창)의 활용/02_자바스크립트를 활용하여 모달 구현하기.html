@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>02_자바스크립트를 활용하여 모달 구현하기</title>
+    <!-- 위 3개의 메타 태그는 *반드시* head 태그의 처음에 와야합니다; 어떤 다른 콘텐츠들은 반드시 이 태그들 *다음에* 와야 합니다 -->
+
+    <!-- 합쳐지고 최소화된 최신 CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+
+    <!-- IE8 에서 HTML5 요소와 미디어 쿼리를 위한 HTML5 shim 와 Respond.js -->
+    <!-- WARNING: Respond.js 는 당신이 file:// 을 통해 페이지를 볼 때는 동작하지 않습니다. -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <style>
+      #myModal_weather, #myModal_tv{
+        position: relative;
+        top:100px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Button trigger modal -->
+    <button type="button" class="btn btn-primary btn-lg btn-tv" data-toggle="modal">
+      전지적 참견시점 참견하기
+    </button>
+     <button type="button" class="btn btn-info btn-lg btn-weather" data-toggle="modal">
+      내일의 날씨 보러가기
+    </button>
+    <button type="button" class="btn btn-danger btn-lg weather_close">내일의 날씨창 닫기</button>
+    <!-- Modal:전지적 참견시점 컨텐츠 -->
+    <div class="modal fade" id="myModal_tv" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="myModalLabel">댓글을 달아주세요</h4>
+          </div>
+          <div class="modal-body">
+            여러분의 참여가 더 좋은 프로그램을 만듭니다.
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">닫기</button>
+            <a type="button" class="btn btn-primary" href="http://www.imbc.com/broad/tv/ent/omniscient/"  target="_blank">전지적 참견시점 홈페이지 바로가서 댓글달기</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Modal:날씨관련 컨텐츠 -->
+    <div class="modal fade" id="myModal_weather" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="myModalLabel">내일의 날씨를 확인해보세요</h4>
+          </div>
+          <div class="modal-body">
+            날씨확인하시고 내일을 준비해보세요
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">닫기</button>
+            <a type="button" class="btn btn-primary" href="https://m.kma.go.kr/m/index.jsp" target="_blank">홈페이지 바로가서 내일의 날씨 확인</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <section>
+      상단의 버튼을 클릭하여 원하는 역할을 수행해 보세요
+    </section>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam corporis odio similique modi, nisi itaque quasi accusantium assumenda, rerum cumque praesentium voluptatem obcaecati hic quisquam explicabo quod eaque excepturi adipisci neque non! Eos quam architecto delectus laborum nam! Consequuntur nobis quis vero, ut et aut ducimus atque eum, sint odit!</p>
+    <!-- jQuery (부트스트랩의 자바스크립트 플러그인을 위해 필요합니다) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <!-- 모든 컴파일된 플러그인을 포함합니다 (아래), 원하지 않는다면 필요한 각각의 파일을 포함하세요 -->
+   <!-- 합쳐지고 최소화된 최신 자바스크립트 -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+  <script>
+    $(document).ready(function(){
+     $(".btn-tv").click(function(){
+      $("#myModal_tv").modal({
+        backdrop:"static",
+        keyboard:false
+      });
+     })
+     $(".btn-weather").click(function(){
+      $("#myModal_weather").modal({
+        backdrop:false,
+        keyboard:false
+      });
+     })
+     $(".weather_close").click(function(){
+      $("#myModal_weather").modal("hide");
+     })
+     // 이벤트 추가하기
+     $('#myModal_tv').on('hidden.bs.modal', function (e) {
+        alert("이벤트에 참여해 주셔서 감사합니다");
+      })
+    })
+  </script>
+  </body>
+</html>

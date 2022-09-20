@@ -1,0 +1,91 @@
+{
+  // IntelliSense를 사용하여 가능한 특성에 대해 알아보세요.
+  // 기존 특성에 대한 설명을 보려면 가리킵니다.
+  // 자세한 내용을 보려면 https://go.microsoft.com/fwlink/?linkid=830387을(를) 방문하세요.
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "java",
+      "name": "Launch Java100_oop_ObjArray2",
+      "request": "launch",
+      "mainClass": "Java100_oop_ObjArray2",
+      "projectName": "oop_b5e631a"
+    },
+    {
+      "type": "java",
+      "name": "Launch Java100_oop_Polymorphism3",
+      "request": "launch",
+      "mainClass": "Java100_oop_Polymorphism3",
+      "projectName": "oop_b5e631a"
+    },
+    {
+      "type": "java",
+      "name": "Launch Java100_oop_InheritanceSample7",
+      "request": "launch",
+      "mainClass": "Java100_oop_InheritanceSample7",
+      "projectName": "oop_b5e631a"
+    },
+    {
+      "type": "java",
+      "name": "Launch Current File",
+      "request": "launch",
+      "mainClass": "${file}"
+    },
+    {
+      "type": "java",
+      "name": "Launch Java100_oop_AbstractClassMethod",
+      "request": "launch",
+      "mainClass": "Java100_oop_AbstractClassMethod",
+      "projectName": "oop_b5e631a"
+    },
+    {
+      "type": "java",
+      "name": "Launch Java100_oop_Exam002",
+      "request": "launch",
+      "mainClass": "Java100_oop_Exam002",
+      "projectName": "oop_b5e631a"
+    },
+    {
+      "type": "java",
+      "name": "Launch Java100_oop_Exam004",
+      "request": "launch",
+      "mainClass": "Java100_oop_Exam004",
+      "projectName": "oop_b5e631a"
+    },
+    {
+      "type": "java",
+      "name": "Launch Java100_oop_Exam006",
+      "request": "launch",
+      "mainClass": "Java100_oop_Exam006",
+      "projectName": "oop_b5e631a"
+    },
+    {
+      "type": "java",
+      "name": "Launch Java100_oop_Interface2",
+      "request": "launch",
+      "mainClass": "Java100_oop_Interface2",
+      "projectName": "oop_b5e631a"
+    },
+    {
+      "type": "java",
+      "name": "Launch Java100_oop_ParseInt",
+      "request": "launch",
+      "mainClass": "Java100_oop_ParseInt",
+      "projectName": "oop_b5e631a"
+    },
+    {
+      "type": "java",
+      "name": "Launch Java100_oop_ParseInt2",
+      "request": "launch",
+      "mainClass": "Java100_oop_ParseInt2",
+      "projectName": "oop_b5e631a"
+    },
+    {
+      "type": "java",
+      "name": "Launch Java100_oop_Polymorphism5",
+      "request": "launch",
+      "mainClass": "Java100_oop_Polymorphism5",
+      "projectName": "oop_b5e631a"
+    }
+  ]
+}

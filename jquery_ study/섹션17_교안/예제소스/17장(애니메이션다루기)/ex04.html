@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>슬라이더업/다운</title>
+    <style>
+        * {
+            font-size: 25px;
+        }
+        #target {
+            border: 1px solid black;
+            width: 600px;
+            height: 500px;
+            text-align: center;
+        }
+        #kor {
+            width: 600px;
+            height: 500px;
+        }
+    </style>
+    <script src="libs/jquery-3.5.1.min.js"></script>
+    <!-- 이징 함수를 사용하기 위해서 라이브러리를 가져옴 -->
+    <script src="libs/jquery.easing.1.3.js"></script>
+    <script>
+        $(document).ready(function(){
+            //움직일 대상 찾아오기
+            var $img1 = $("#target");
+
+            //나타나는 효과(크기 중에서 높이만 변한다.)
+            $("#show").on("click", function(){
+                $img1.slideDown(6000, "easeInBounce");
+            });
+            //사라지는 효과(크기 중에서 높이만 변한다.)
+            $("#hide").on("click", function(){
+                $img1.slideUp(6000, "easeOutBounce");
+            });
+        });
+    </script>
+</head>
+<body>
+    <div id="target">
+        <img id="kor" src="images/korea.png">
+    </div>
+    <div>
+        <button id="show">slideDown</button>
+        <button id="hide">slideUp</button>
+    </div>
+
+</body>
+</html>

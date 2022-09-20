@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트 vs jQuery-3</title>
+    <style>
+        body {
+            font-size: 15px;
+            font-family: "굴림";
+        }
+        div, p, ul, li {
+            border: 1px solid gray;
+            margin: 10px;
+        }
+        ul {
+            padding: 10px;
+        }
+        li.select {
+            background-color: #ccc;
+        }
+    </style>
+    <script src="libs/jquery-3.5.1.min.js"></script>
+    <script>
+        //자바스크립트로 태그 div의 자식 p인 노드 중에서 클래스 선택자가 test2를 모두 
+        //찾아서 border스타일 변경하기
+        // window.onload = function() {
+        //     var pArr = document.getElementsByClassName("test2");
+        //     for(var i=0; i<pArr.length; i++){
+        //         //pArr[i].style.border = "5px solid #f00";
+        //         var varP = pArr[i];                
+        //         //만약에 p인 자식요소라면...
+        //         if(varP.tagName == "P"){
+        //             //그리고 p인 자식요소의 부모요소가 DIV라면...                    
+        //             if(varP.parentNode.tagName == "DIV") {
+        //                 varP.style.border = "5px solid #f00";
+        //             }
+        //         }
+        //     }
+        // }
+        //jQuery 태그 div의 자식 p인 노드 중에서 클래스 선택자가 test2를 모두 
+        //찾아서 border스타일 변경하기
+        $(document).ready(function(){
+            $("div p.test2").css("border", "5px solid #f00");
+        });
+    </script>
+</head>
+<body>
+    <div id="samplePage" class="page">
+        샘플페이지(div, id=samplePage, class=page)
+        <div id="header">
+            헤더 영역(div, id=header)
+        </div>
+        <div id="content" class="sample-content">
+            노드 찾기(div, id=content class=sample-content)
+            <ul class="menu">
+                일반 노드 찾기(ul, class=menu)
+                <li data-value="1">id로 찾기(li, data-value=1)</li>
+                <li class="select">tag로 찾기(li, class=select)</li>
+                <li data-value="2">class로 찾기(li, data-value=2)</li>
+                <li class="test1">속성으로 찾기(li, class=test1)</li>
+            </ul>
+            <div class="content-data">
+                자식 노드 찾기(div, class=content-data)
+                <p class="test1">1. 모든 자식 노드 찾기(p, class=test1)</p>
+                <p>2. 특정 자식 노드만 찾기(p)</p>
+                <p class="test2">2. 마지막 자식 노드 찾기(p, class=test2)</p>
+            </div>
+        </div>
+        <div id="footer">
+            푸터 영역(div, id=footer)
+        </div>
+    </div>    
+</body>
+</html>

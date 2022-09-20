@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>기본행동 취소</title>
+    <style>
+        body {
+            font-size: 30px;
+        } 
+        a {
+            font-size: 30px;
+        }      
+    </style>
+    <script src="libs/jquery-3.5.1.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            //기본행동은 어떠한 특정태그가 이벤트가 발생을 하게 되면 해당 태그만이
+            //작동하는 기본적인 행동을 의미한다.
+            //preventDefault()는 기본행동을 취소해주는 기능을 가지고 있다.
+            $("#test").on("click", function(e){
+                //alert("반갑습니다.");
+                //cancelable값이 true이면 기본행동이 있다.
+                console.log("cancelable값 : " + e.cancelable);
+                //기본 행동 취소
+                e.preventDefault();
+            });         
+        });
+    </script>
+</head>
+
+<body>
+    <a href="http://www.naver.com" id="test">네이버로 이동</a>
+</body>
+</html>

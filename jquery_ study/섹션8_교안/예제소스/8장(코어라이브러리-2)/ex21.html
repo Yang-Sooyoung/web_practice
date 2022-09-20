@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>배열 이미지</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .arrBanner {
+            width: 400px;
+            height: 200px;
+            position: absolute;
+            border: 3px solid gray;
+        }
+        #arrBanner1 {
+            top : 100px;
+            left: 100px;
+        }        
+    </style>
+    <script src="libs/jquery-3.5.1.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            var $arrBanner = $(".arrBanner");
+            var i = 0;
+            var imgList = ["canada.png","england.png","germany.png","italia.png",
+                           "korea.png","spain.png","usa.png"];
+
+            setInterval(function() {
+                i++;  //다음 인덱스 구하기
+                //인덱스 범위를 같으면 다시 롤링하기 위해서 인덱스를 0으로 설정
+                if(i >= imgList.length){
+                    i = 0;
+                }
+                //이미지 이름을 배열에서 얻기
+                var imgName = imgList[i];
+                //속성 설정하는 부분(이미지 출력)
+                $arrBanner.attr("src","images/" + imgName);
+            }, 1000);
+        });
+    </script>
+</head>
+<body>
+    <img src="images/korea.png" class="arrBanner" id="arrBanner1">
+</body>
+</html>

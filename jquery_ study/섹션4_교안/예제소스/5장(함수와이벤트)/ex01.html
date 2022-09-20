@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>함수-1</title>
+</head>
+<body>
+    <script>
+        //상당히 비효율적 코드
+        // document.write("1. 홍길동 <br/>");
+        // document.write("2. 홍길동 <br/>");
+        // document.write("3. 홍길동 <br/>");
+        // document.write("4. 홍길동 <br/>");
+        // document.write("5. 홍길동 <br/>");
+        //반복문 활용
+        // for(var i=1; i<=5; i++){
+        //     document.write(i + ". 홍길동 <br/>");
+        // }
+        //함수를 사용하는 방법(코드의 재활용)
+        function callName(name, count){
+            for(var i=1; i<=count; i++){
+                document.write(i + ". " + name + "<br/>");
+            }
+        }
+        //매개변수를 달리 주면 결과가 달라진다.
+        callName("홍길동", 10);
+        callName("신사임당",3);
+        
+
+
+    </script>
+
+    
+</body>
+</html>

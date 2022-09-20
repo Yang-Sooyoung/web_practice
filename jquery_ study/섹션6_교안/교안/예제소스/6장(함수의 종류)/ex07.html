@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>함수-7(일반함수를 이용을 하여 프로그램)</title>
+    <style>
+        #container {
+            border: 1px solid blue;
+            line-height: 10px;
+        }
+    </style>
+    <script src="libs/jquery-3.5.1.min.js"></script>
+    <script>
+        var count = 0;  //전역변수 선언과 동시에 초기화
+        var $container = null;   //전역변수 선언과 동시에 초기화
+
+        $(document).ready(function(){
+            $container = $("#container"); 
+            hi(); //일반 함수 호출            
+            $("#btnPrint").click(function(){
+               hi();
+            });
+        });
+        //일반 함수 구현
+        function hi(){
+            $container.append("<p>" + count + "안녕하세요.반갑습니다.");
+            count++;
+        }
+
+    </script>
+</head>
+<body>
+    <button id="btnPrint">출력하기</button>
+    <div id="container">        
+    </div>
+</body>
+</html>

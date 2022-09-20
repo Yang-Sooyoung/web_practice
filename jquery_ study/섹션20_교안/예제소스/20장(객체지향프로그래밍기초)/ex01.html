@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>절차지향적 프로그래밍 예</title>
+    <style>
+		.tab-menu {
+			list-style: none;
+			height:80px;
+		}
+		.tab-menu li {
+			width:99px;
+			height:40px;
+			background-position-y:0;
+			text-indent: -1000px;
+			overflow: hidden;
+            display: inline;
+            float: left;
+		}
+		.tab-menu li:hover {
+			background-position-y: -40px;
+		}
+		.tab-menu li.select {
+			background-position-y: -80px;
+			height:80px;
+		}
+		.tab-menu li.menuitem1 {
+			background-image: url(images/newbtn.bar.1.png);
+		}
+		.tab-menu li.menuitem2 {
+			background-image: url(images/newbtn.bar.2.png);
+		}
+		.tab-menu li.menuitem3 {
+			background-image: url(images/newbtn.bar.3.png);
+		}
+		.tab-menu li.menuitem4 {
+			background-image: url(images/newbtn.bar.4.png);
+		}
+		.tab-menu li.menuitem5 {
+			background-image: url(images/newbtn.bar.5.png);
+		}
+		.tab-menu li.menuitem6 {
+			background-image: url(images/newbtn.bar.6.png);
+		}
+    </style>
+    <script src="libs/jquery-3.5.1.min.js"></script>
+    <script>
+        //절차지향적 프로그램의 예
+        //절차지향적 프로그램은 함수의 연속이다.
+        var $tab1MenuItems = null;
+        var $tab2MenuItems = null;
+
+        $(document).ready(function(){
+            $tab1MenuItems = $("#tabMenu1 li");
+            $tab2MenuItems = $("#tabMenu2 li");
+
+            //함수의 매개변수로 전역데이터를 넘겨준다.
+            tabMenu($tab1MenuItems);
+            tabMenu($tab2MenuItems);
+
+            //탭메뉴 초기화 이벤트 리스너 등록
+            $("#btnReset").click(function(){
+                resetTabMenu($tab1MenuItems);
+                resetTabMenu($tab2MenuItems);
+            });
+        });
+
+        //탭메뉴 생성
+        function tabMenu($menuItems) {
+            //이벤트 리스너 등록
+            $menuItems.click(function(){
+                selectMenuItemAt($menuItems, $(this).index());
+            });
+        }
+
+        //n번째 탭메뉴 선택
+        function selectMenuItemAt($menuItems, index){
+            $menuItems.removeClass("select");
+            $menuItems.eq(index).addClass("select");
+        }
+
+        //탭메뉴 선택 초기화
+        function resetTabMenu($menuItems) {
+            $menuItems.removeClass("select");
+        }
+
+    </script>
+</head>
+<body>
+    <button id="btnReset">초기화</button>
+    <p>첫 번째 탭메뉴</p>
+		<ul class="tab-menu" id="tabMenu1">
+			<li class="menuitem1">google</li>
+			<li class="menuitem2">facebook</li>
+			<li class="menuitem3">pinterest</li>
+			<li class="menuitem4">twitter</li>
+			<li class="menuitem5">airbnb</li>
+			<li class="menuitem6">path</li>
+		</ul>
+		<p>두 번째 탭메뉴</p>
+		<ul class="tab-menu" id="tabMenu2">
+			<li class="menuitem1">google</li>
+			<li class="menuitem2">facebook</li>
+			<li class="menuitem3">pinterest</li>
+			<li class="menuitem4">twitter</li>
+			<li class="menuitem5">airbnb</li>
+			<li class="menuitem6">path</li>
+		</ul>
+</body>
+</html>

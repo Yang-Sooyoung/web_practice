@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>this의 정체-3</title>
+    <script src="libs/jquery-3.5.1.min.js"></script>
+    <script>
+        //전역변수
+        var data = 10;
+        $(document).ready(function(){            
+           $("#myButton").click(function(){
+               this.data = 20;
+               data = 30;
+
+               console.log("1.data = " + data);
+               //이벤트 리스너에서는 this가 이벤트가 발생하는 객체의 것이다.
+               console.log("2.this.data = " + this.data);
+               console.log("3.window.data = " + window.data);
+           });
+        });
+    </script>
+</head>
+<body>
+    <button id="myButton">리스너 실행</button>
+</body>
+</html>

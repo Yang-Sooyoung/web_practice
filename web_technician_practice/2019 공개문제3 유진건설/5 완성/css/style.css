@@ -1,0 +1,367 @@
+@charset "utf-8";
+
+/* Reset CSS */
+body, h1, h2, h3, h4, h5, h6, p, ul, ol {
+	margin: 0;
+	padding: 0;
+}
+ul, ol {
+	list-style: none;
+}
+a {
+	text-decoration: none;
+}
+img {
+	vertical-align: top;
+}
+
+/* 가이드에 언급된 CSS */
+body {
+	background-color: #f2f2f2;
+	color: #333;
+}
+a {
+	color: #333;
+}
+
+/* Common CSS */
+#header {
+	position: relative;
+	margin: 0 auto;
+	width: 1200px;
+	height: 100px;
+}
+#header .logo {
+	float: left;
+	margin-top: 32px;
+	width: 138px;
+	height: 42px;
+}
+#header .menu {
+	height: 100px;
+}
+#gnb {
+	position: absolute;
+	right: 0;
+	top: 20px;
+	z-index: 9999;
+	height: 80px;
+	overflow: hidden;
+	text-align: center;
+	transition: height 0.3s;
+}
+/* #gnb:hover, */
+#gnb.active {
+	height: 230px;
+}
+#gnb > ul > li {
+	display: inline-block;
+	position: relative;
+	margin: 0 6px;
+}
+#gnb > ul > li:last-child {
+	margin-right: 0;
+}
+#gnb > ul > li > a {
+	display: block;
+	padding: 0 40px;
+	height: 80px;
+	line-height: 78px;
+	font-weight: bold;
+	color: #686969;
+}
+#gnb > ul > li:hover > a,
+#gnb > ul > li.active > a {
+	background-color: #ffc000;
+	color: #fff;
+}
+#gnb ul ul {
+	position: absolute;
+	width: 100%;
+}
+#gnb ul ul li:first-child {
+	margin-top: 8px;
+}
+#gnb ul ul li a {
+	display: block;
+	padding: 10px;
+	text-align: center;
+	font-size: 14px;
+}
+#gnb ul ul li a:hover,
+#gnb ul ul li a:focus {
+	background-color: #fff;
+	color: #686969;
+}
+#header .menu_bg {
+	position: absolute;
+	left: 0;
+	top: 100px;
+	z-index: 999;
+	width: 100%;
+	height: 0;
+	background-color: #ffc000;
+	transition: height 0.3s;
+}
+#header .menu_bg.active {
+	height: 142px;
+}
+.slider {
+	position: relative;
+	margin: 0 auto;
+	width: 1200px;
+	height: 300px;
+}
+.slider li {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 1200px;
+	height: 300px;
+	opacity: 1;
+	transition: opacity 0.3s;
+}
+.slider li.active {
+	opacity: 0;
+}
+.slider .slider_text {
+	position: absolute;
+	left: 0;
+	top: 96px;
+	width: 100%;
+	text-align: center;
+}
+.slider .slider_text h2 {
+	padding: 10px 0;
+	font-size: 36px;
+	font-weight: normal;
+	color: #ff5050;
+}
+.slider .slider_text h2 span {
+	font-weight: bold;
+}
+.slider .slider_text p {
+	margin-top: 16px;
+	padding: 8px 0;
+	line-height: 28px;
+	background-color: rgba(0,0,0,.7);
+	color: #fff;
+	text-shadow: 0 0 1px rgba(0,0,0,.8);
+}
+#content {
+	margin: 0 auto;
+	width: 1200px;
+	height: 200px;
+}
+#content .content1 {
+	float: left;
+	margin-top: 15px;
+	width: 400px;
+	height: 172px;
+}
+#content .content1 .title {
+	border-bottom: 1px solid #ccc;
+}
+#content .content1 .title h3 {
+	display: inline-block;
+	position: relative;
+	top: 1px;
+	margin-left: 10px;
+	padding: 2px 10px;
+	line-height: 24px;
+	font-size: 15px;
+	font-weight: bold;
+	color: #ff5050;
+	border: 1px solid #ccc;
+	border-bottom: 1px solid #f1f1f1;
+}
+#content .content1 ul {
+	padding: 10px 0;
+}
+#content .content1 li {
+	height: 31px;
+	border-bottom: 1px solid #dedede;
+}
+#content .content1 li a {
+	display: block;
+	float: left;
+	line-height: 31px;
+	font-size: 14px;
+}
+#content .content1 li a:hover {
+	text-decoration: underline;
+}
+#content .content1 li span {
+	display: block;
+	float: right;
+	line-height: 31px;
+	font-size: 14px;
+	color: #999;
+}
+#content .content2 {
+	float: left;
+	margin-left: 30px;
+	margin-top: 15px;
+	width: 480px;
+	height: 185px;
+}
+#content .content2 .title {
+	border-bottom: 1px solid #ccc;
+}
+#content .content2 .title h3 {
+	display: inline-block;
+	position: relative;
+	top: 1px;
+	margin-left: 10px;
+	padding: 2px 10px;
+	line-height: 24px;
+	font-size: 15px;
+	font-weight: bold;
+	color: #ff5050;
+	border: 1px solid #ccc;
+	border-bottom: 1px solid #f1f1f1;
+}
+#content .content2 .photo {
+	margin-top: 15px;
+}
+#content .content2 .photo li {
+	float: left;
+	margin-left: 10px;
+	text-align: center;
+}
+#content .content2 .photo li:first-child {
+	margin-left: 0;
+}
+#content .content2 .photo li a img {
+	opacity: 0.7;
+	transition: opacity 0.3s;
+}
+#content .content2 .photo ul li a:hover img,
+#content .content2 .photo ul li a:focus img {
+	opacity: 1;
+}
+#content .content2 .photo ul li a span {
+	display: block;
+	margin-top: 7px;
+	font-size: 13px;
+}
+#content .content3 {
+	float: left;
+	margin-left: 30px;
+	margin-top: 15px;
+	width: 260px;
+}
+#content .content3 .title {
+	border-bottom: 1px solid #ccc;
+}
+#content .content3 .title h3 {
+	display: inline-block;
+	position: relative;
+	top: 1px;
+	margin-left: 10px;
+	padding: 2px 10px;
+	line-height: 24px;
+	font-size: 15px;
+	font-weight: bold;
+	color: #ff5050;
+	border: 1px solid #ccc;
+	border-bottom: 1px solid #f1f1f1;
+}
+#content .content3 .banner {
+	margin-top: 15px;
+	text-align: center;
+}
+#content .content3 .banner a img {
+	width: 260px;
+	border: 2px solid #5b9bd5;
+	box-sizing: border-box;
+}
+#content .content3 .banner a span {
+	display: block;
+	margin-top: 9px;
+	font-size: 13px;
+}
+#footer {
+	margin: 0 auto;
+	padding: 20px 0; 
+	width: 1200px;
+	height: 100px;
+	box-sizing: border-box;
+}
+#footer .left_content {
+	float: left;
+}
+#footer .left_content .footer_menu ul li {
+	display: inline-block;
+	position: relative;
+}
+#footer .left_content .footer_menu ul li::after {
+	content: "";
+	display: block;
+	position: absolute;
+	right: 0;
+	top: 10px;
+	z-index: 30;
+	width: 1px;
+	height: 13px;
+	background-color: #333;
+}
+#footer .left_content .footer_menu ul li:last-child::after {
+	display: none;
+}
+#footer .left_content .footer_menu ul li a {
+	display: block;
+	padding: 5px 10px 5px 5px;
+	font-size: 14px;
+}
+#footer .left_content .footer_menu ul li:first-child a {
+	padding-left: 0;
+}
+#footer .left_content .copyright {
+	line-height: 12px;
+	font-size: 14px;
+}
+#footer .family_site {
+	float: right;
+	margin-top: 15px;
+}
+#footer .family_site select {
+	height: 30px;
+}
+.pop {
+	display: none;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	z-index: 10000;
+	margin-left: -286px;
+	margin-top: -265px;
+	padding: 10px;
+	width: 572px;
+	height: 530px;
+	background-color: #5b9bd5;
+}
+.pop .title a {
+	display: block;
+	margin-bottom: 10px;
+	padding: 10px 0;
+	text-align: center;
+	color: #fff;
+}
+.pop .content .desc {
+	padding: 10px 0;
+	text-align: center;
+	background-color: #fff;
+}
+.pop .content .close {
+	margin-top: 4px;
+	height: 28px;
+	text-align: right;
+}
+.pop .content .close a {
+	display: inline-block;
+	padding: 5px;
+	font-size: 14px;
+	font-weight: bold;
+	color: #fff;
+}

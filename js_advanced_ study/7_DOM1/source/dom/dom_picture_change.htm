@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8">
+		<title>Dom Picture Change</title>
+		<style>
+			.pic-box1 { border: 0px solid blue }
+			.pic-box1 > div > div > img { border: 0px solid; width: 99% }
+			.pic-box1 img { max-width: 100% /* 브라우저 사이즈에 따라 최대 이미지 크기가 같이 늘려지느냐 아니냐의 차이 */ }
+			.pic-box2 { margin: 0 auto; width: 50%; border: 0px solid red }
+			ul { margin: 0; padding: 0; list-style-type: none }
+			li { float: left; width: 24%; margin-right: 1%; cursor: pointer; font-size: 0; border: 0px solid red; overflow: hidden }
+			#big_img { padding-top: 6px }
+			#scale {
+				-webkit-transform: scale(1);
+				-moz-transform: scale(1);
+				-ms-transform: scale(1);
+				-o-transform: scale(1);
+				transform: scale(1);
+				
+				-webkit-transition: all 0.3s ease-in-out;
+				-moz-transition: all 0.3s ease-in-out;
+				-ms-transition: all 0.3s ease-in-out;
+				-o-transition: all 0.3s ease-in-out;
+				transition: all 0.3s ease-in-out;
+			}
+			#scale:hover {  /* 띄어쓰기 주의! */
+				-webkit-transform: scale(1.2);
+				-moz-transform: scale(1.2);
+				-ms-transform: scale(1.2);
+				-o-transform: scale(1.2);
+				transform: scale(1.2);
+			}
+		</style>
+		<script src="./dom_picture_change.js"></script>
+	</head>
+	<body>
+	
+		<style>
+			.test {
+				background-color: green; width: 100px; height: 100px;
+				/* transition: width, height, 2s ease-in-out; */
+				/* transition: all 2s ease-in-out 1s; */
+				transition: width 5s ease-out;  /* 아래 height는 삭제 */
+				/*
+					linear			:	변화가 시작부터 종료까지 일정한 속도로 진행.
+					ease			: 	시작은 천천히 --> 초반은 빠르게 --> 종료부분은 다시 느려지면서 마무리.
+					ease-in			: 	천천히 시작하면서 점점 가속.
+					ease-out		: 	빨리 시작하여 점점 느려지면서 마무리.
+					ease-in-out	:	천천히 시작하여 --> 조금씩 가속되면서 --> 느려지면서 마무리.
+				*/
+				/*
+					브라우저 제조사별 접두어 --> Vendor prefix 또는 Browser prefix
+					표준 규약이 아닌 속성들 --> 브라우저 종류에 따라 조금씩 다르게 지원 --> 속성명 앞에 접두사(prefix)를 붙여 --> 브라우저별로 구분.
+					과도기적 단계에서 사용 --> 브라우저 제조사마다 다른 접두어를 사용.
+					자동 생성해주는 사이트도 있고, js로 만들어진 것도 있다.
+					-webkit-			: Safari, Chrome, Android, iOS, Webkit 엔진을 이용하는 브라우저.
+					-moz-				: Firefox, 모질라 브라우저 엔진을 사용하는 브라우저.
+					-ms-, -mso-		: IE
+					-o-					: Opera
+					
+					사용(기술)방법
+					(1) 각 제조사의 접두어를 먼저 기술하고,
+					(2) 맨 마지막에 표준 속성(접두어 안쓴거)을 기술한다.
+					이래야 접두어를 사용하는 해당 브라우저가 먼저 기술된 순서대로 자신에게 맞는 것을 이용하고,
+					만약 해석을 하지 못하는 브라우저 경우는 무시하고,
+					표준을 지원하는 브라우저는 맨 마지막의 표준 속성(접두어 안쓴거)을 실행한다.
+				*/
+			}
+			.test:hover {
+				width: 400px;
+				/* height: 400px; */
+			}
+		</style>
+		<div class="test"></div>
+		<br><br>
+	
+		<div class="pic-box1">
+			<div class="pic-box2">
+				<ul>
+					<li><img id="scale" src="https://cdn.pixabay.com/photo/2021/04/11/23/51/butterfly-6170999__340.jpg" class="small_img" data-image="https://cdn.pixabay.com/photo/2021/04/11/23/51/butterfly-6170999__340.jpg"></li>
+					<li><img id="scale" src="https://cdn.pixabay.com/photo/2020/07/11/16/16/jeans-5394561__340.jpg" class="small_img" data-image="https://cdn.pixabay.com/photo/2020/07/11/16/16/jeans-5394561__340.jpg"></li>
+					<li><img id="scale" src="https://cdn.pixabay.com/photo/2021/01/09/20/33/sunset-5903426__340.jpg" class="small_img" data-image="https://cdn.pixabay.com/photo/2021/01/09/20/33/sunset-5903426__340.jpg"></li>
+					<li><img id="scale" src="https://cdn.pixabay.com/photo/2021/04/20/08/14/fiber-6193207__340.jpg" class="small_img" data-image="https://cdn.pixabay.com/photo/2021/04/20/08/14/fiber-6193207__340.jpg"></li>
+				</ul>
+				<div>
+					<img src="https://cdn.pixabay.com/photo/2018/06/19/06/44/question-mark-3483960__340.jpg" id="big_img">
+				</div>
+			</div>			
+		</div>
+		
+	</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+

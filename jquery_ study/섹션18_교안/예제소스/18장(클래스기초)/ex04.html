@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>리터럴 클래스를 매개변수의 값으로 사용하기-1</title>
+    <style>        
+    </style>
+
+
+    <script src="libs/jquery-3.5.1.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            //매개변수가 5개를 가지고 있는 함수를 정의하고 구현한 코드
+            // function showInfo(userName, id, nickName, age, address){
+            //     document.write("일반적 함수 호출" + "<br/>")
+            //     document.write("userName : " + userName + ", id : " + id + ", nickName : " + nickName 
+            //     + ", age : " + age + ", address :" + address) ;
+            // }
+
+            //오브젝트 리터럴 클래스를 매개변수로 받고 있다.
+            function showInfo(userInfo){
+                document.write("리터럴 방식" + "<br/>")
+                document.write("userName : " + userInfo.userName + ", id : " + userInfo.id 
+                + ", nickName : " + userInfo.nickName + ", age : " + userInfo.age 
+                + ", address :" + userInfo.address) ;
+            }
+
+            //오브젝트 리터럴 클래스 방식으로 매개변수를 주는 코드
+            var userInfo = {
+                userName : "신은혁",
+                id : "eun_hyuk",
+                nickName : "태권소년",
+                age : 15,
+                address : "대구시"
+            }
+
+            //함수호출-오브젝트 리터럴 방식을 사용하지 않은 일반적 방식
+            //showInfo("신은혁", "eun_hyuk", "태권소년", 15, "대구시");
+            showInfo(userInfo);
+
+        });
+        
+    </script>
+</head>
+<body>  
+    
+</body>
+</html>

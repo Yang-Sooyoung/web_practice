@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery를 활용한 클래스 단일, 다중 추가하기(addClass())</title>
+    <style>
+        body {
+            font-size: 20px;
+            font-family: "고딕";            
+        }
+        .menu {
+            padding: 10px;
+            list-style: none;
+            border: 2px solid black;
+        }
+        .menu li {
+            border: 1px solid aqua;
+            margin: 10px;
+        }
+        li.select {
+            background-color: black;
+            color : #fff;
+            font-size: 30px;
+        }
+        li.border {
+            border: 5px solid yellow;
+        }
+    </style>
+    <script src="libs/jquery-3.5.1.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            //li객체에 클릭 이벤트를 등록을 하고 있다.
+            $(".menu li").click(function(){
+                //클릭된 li에게 select클래스를 추가하고 있다.(단일클래스)
+                //$(this).addClass("select");
+                //클릭된 li객체에 select와 border클래스를 추가를 하고 있다.(다중클래스)
+                $(this).addClass("select border");
+            });           
+        });
+    </script>
+</head>
+<body>   
+    <ul class="menu">
+        <li>메뉴1</li>
+        <li>메뉴2</li>
+        <li class="select">메뉴3</li>
+        <li>메뉴4</li>
+        <li>메뉴5</li>
+    </ul>    
+</body>
+</html>

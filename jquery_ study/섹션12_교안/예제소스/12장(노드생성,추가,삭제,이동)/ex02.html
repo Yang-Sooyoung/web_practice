@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>노드 생성-jQuery로 추가하기(prepend(), prependTo())</title>
+    <style>
+      body {
+        font-size: 15px;
+        font-family: "맑은 고딕";
+      }
+      ul,
+      li {
+        border: 3px solid gray;
+        margin: 10px;
+      }
+      ul {
+        padding: 10px;
+      }
+      li.select {
+        background-color: aquamarine;
+      }
+    </style>
+    <script src="libs/jquery-3.5.1.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        var cnt = 6;
+        $("#btnAdd").click(function () {
+          cnt++;
+          //신규 노드를 생성하는데 문자열을 이용해서 바로 추가하는 방법
+          //prepend(), prependTo()는 맨 첨 자식노드로 추가가 된다.
+          //$("#menu").prepend("<li>메뉴" + cnt + "</li>");
+
+          //신규 노드를 직접 생성하여 추가하는 방법(prepend())
+          var $li = $("<li>메뉴" + cnt + "</li>");
+          //$("#menu").prepend($li);
+
+          //신규 노드를 직접 생성하여 추가하는 방법(prependTo())
+          //$li.prependTo("#menu");
+
+          //신규 노드를 직접 생성하여 추가하는 방법(insertBefore())
+          $li.insertBefore("#menu li:first");
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <button id="btnAdd">추가하기</button>
+    <ul id="menu">
+      <li>메뉴1</li>
+      <li>메뉴2</li>
+      <li>메뉴3</li>
+      <li>메뉴4</li>
+      <li class="select">메뉴5</li>
+      <li>메뉴6</li>
+    </ul>
+  </body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>this의 정체-1</title>
+    <script src="libs/jquery-3.5.1.min.js"></script>
+    <script>
+        //클래스 생성
+        function MyClass(){
+            this.property1 = "value1";
+        }
+        //메서드 정의
+        MyClass.prototype.method1 = function() {
+            alert(this.property1);
+        }
+        //this가 객체단에 this가 된다.
+        var my = new MyClass();
+        my.method1();
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

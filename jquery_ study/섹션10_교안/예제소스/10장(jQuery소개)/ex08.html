@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko"">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ready()의 4가지 방법</title>
+    <script src="libs/jquery-3.5.1.min.js"></script>
+    <script>
+        //방법1
+        // jQuery(document).ready(function(){
+        //     alert("jQuery ready() 방법 1")
+        // });
+        //방법2
+        // jQuery(function(){
+        //     alert("jQuery ready() 방법 2")
+        // });
+        //방법3
+        //jQuery()대신에 $()를 사용함
+        //가장 추천드리는 방법이다.
+        // $(document).ready(function(){
+        //     alert("jQuery ready() 방법 3")
+        // });
+        //방법4
+        $(function(){
+            alert("jQuery ready() 방법 4")
+        });
+    </script>
+</head>
+<body>
+    <h1>ready() 실행</h1>
+</body>
+</html>

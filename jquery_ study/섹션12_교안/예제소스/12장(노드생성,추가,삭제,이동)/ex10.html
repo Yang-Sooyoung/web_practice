@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>노드 생성-jQuey 모든 자식노드를 제거하기(html(),remove())</title>
+    <style>
+        body {
+            font-size: 15px;
+            font-family: "맑은 고딕";
+        }
+        ul, li {
+            border: 3px solid gray;
+            margin: 10px;
+        }
+        ul {
+            padding: 10px;
+        }
+        li.select {
+            background-color: aquamarine;
+        }
+    </style>
+    <script src="libs/jquery-3.5.1.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            
+            $("#add").click(function(){
+                var data = "";
+                for(var i=1; i<=10; i++){
+                    //추가할 노드 10개를 만들고 있다.
+                    data += "<li>메뉴" + i + "</li>";
+                }
+                //노드 내용에 적용을 하는 부분
+                //html() jQuery메서드를 단 1번만 호출하고 있다.
+                $("#menu").html(data);
+            }); 
+
+            //모든 자식 노드를 제거하기
+            // $("#remove").click(function(){
+            //     //html() jQuery메서드가 단 1번만 호출
+            //     $("#menu").html("");
+            // }); 
+
+            //모든 자식 노드를 제거하기
+            $("#remove").click(function(){
+                //remove() jQuery메서드는 내부적으로 자식노드의 수만큼 호출
+                //remove()는 단일 jQuery객체를 제거 전용
+                $("#menu li").remove();
+            }); 
+            
+        });
+    </script>
+</head>
+<body>
+    <button id="add">추가하기</button>
+    <button id="remove">제거하기</button>
+    <ul id="menu">        
+    </ul>    
+</body>
+</html>

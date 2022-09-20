@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>String클래스-5(replace())</title>
+    <script>
+        var str = "반갑습니다.x님 자바스크립트 공부 중입니다.";
+        var replaceStr = window.prompt("이름을 입력해주세요!");
+        //replace()는 대체하고자 하는 문자열을 찾아서 대체 문자로 치환을 하고 새로운 String
+        //인스턴스를 리턴을 해준다.
+        var resultStr = str.replace("x", replaceStr);
+        document.write(str + "<br/>");
+        document.write(resultStr + "<br/>");
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko"">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>타이머함수-2(setTimeout())</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        #contents {
+            width: 800px;
+            height: 200px;
+            border: 5px solid blue;
+            margin: 30px;
+
+            font-size: 50px;
+            text-align: center;
+            line-height: 200px;
+            vertical-align: middle;
+        }
+    </style>
+    <script src="libs/jquery-3.5.1.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            var $contents = $("#contents");            
+
+            //익명함수 풀이
+            //setTimeout()함수는 duration밀리초 후에 단 한번만 실행이 되는 함수
+            // setTimeout(function(){
+            //     $contents.text("안녕하세요!자바스크립트 언어!"); //text()를 이용하여 div영역에 출력을 하고 있다.
+            // }, 3000);    //단위가 밀리초이므로 현재는 3초다.
+
+            //일반함수 풀이
+            function diplayText(){                
+                $contents.text("안녕하세요!자바스크립트 언어!");
+            }
+            setTimeout(diplayText, 3000);
+        });
+    </script>
+</head>
+<body>
+    <div id="contents">       
+    </div>
+</body>
+</html>

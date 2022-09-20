@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>이벤트 강제로 발생시키기(trigger())-1</title>
+    <style>
+      body {
+        font-size: 30px;
+      }
+      #btn1,
+      #btn2 {
+        font-size: 30px;
+      }
+    </style>
+    <script src="libs/jquery-3.5.1.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        $("#btnA").on("click", function (e) {
+          //강제로 btnB에 click 이벤트가 발생되도록 한다.
+          $("#btnB").trigger("click");
+        });
+
+        //btnB에 클릭 이벤트를 등록
+        $("#btnB").on("click", function (e) {
+          alert("버튼B가 클릭되었습니다.");
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <button id="btnA">버튼A</button>
+    <button id="btnB">버튼B</button>
+  </body>
+</html>

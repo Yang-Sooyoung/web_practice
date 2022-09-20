@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>다형성 예제-2(다형성 미적용 이미지 갤러리 만들기)</title>
+	<style>
+		div.image-container {
+			position: relative;
+		}
+		div.image-container img {
+			position: absolute;
+			left: 0;
+			top: 0;
+			width: 120px;
+		}		
+		#container1{
+			background-color: aliceblue;
+		}
+		#btnHorizontal:hover {
+			background-color: red;
+		}
+		#btnVertical:hover {
+			background-color: yellow;
+		}
+		#btnRandom:hover {
+			background-color: blue;
+		}
+		#btnGrid:hover {
+			background-color: green;
+		}
+		div button {
+			font-size: 15pt;
+			font-weight: 700;
+			margin-bottom: 10px;
+		}
+	</style>
+    <script src="libs/jquery-3.5.1.min.js"></script>
+    <script>
+		//클래스 단위 프로그래밍으로 정렬하는 기능을 제공을 한 경우
+
+		$(document).ready(function(){
+			//모든 이미지를 가지고 오기
+			var img1 = new SimpleGallery("#container1 img");
+
+			//버튼 클릭 이벤트를 등록하는 코드
+			$("#btnHorizontal").click(function(){
+				//가로로 정렬하는 부분
+				img1.show("horizontal")
+			});
+			$("#btnVertical").click(function(){
+				//세로로 정렬하는 부분
+				img1.show("vertical")
+			});
+			$("#btnRandom").click(function(){
+				//랜덤으로 정렬하는 부분
+				img1.show("random")
+			});
+			$("#btnGrid").click(function(){
+				//바둑판으로 정렬하는 부분
+				img1.show("grid")
+			});			
+		});
+  
+		//심플갤러리 클래스 정의
+		function SimpleGallery(selector) {
+			this.$images = null;
+			this.init(selector);
+		}
+		//요소 초기화
+		SimpleGallery.prototype.init = function(selector) {
+			this.$images = $(selector);
+		}
+		//매개변수로 넘어오는 type에 따라서 가로, 세로, 랜덤, 바둑판 정렬이 이루어지게끔
+		//switch문으로 분기를 하고 있는 코드이다.
+		SimpleGallery.prototype.show = function(type) {
+			switch(type) {
+				case "horizontal" : 
+					this.alignHorizontal();
+					break;
+				case "vertical" :
+					this.alignVertical();
+					break;
+				case "random" :
+					this.alignRandom();
+					break;
+				case "grid" :
+					this.alignGrid();
+					break;
+				default :
+					this.alignHorizontal();
+			}
+		}
+		//가로 정렬 기능 코드
+		SimpleGallery.prototype.alignHorizontal = function() {
+			//이미지 개수 구하기
+			var length = this.$images.length;
+			//이미지 가로로 나열하는 코드
+			for(var i=0; i<length; i++) {
+				var x = i * 200;
+				this.$images.eq(i).css({
+					left : x
+				});
+			}
+		}
+		//세로 정렬 기능 코드
+		SimpleGallery.prototype.alignVertical = function() {
+			//이미지 개수 구하기
+			var length = this.$images.length;
+			//이미지 세로로 나열하는 코드
+			for(var i=0; i<length; i++) {
+				var y = i * 200;
+				this.$images.eq(i).css({
+					left : 0,
+					top : y
+				});
+			}
+		}
+		//랜덤 정렬 기능 코드
+		SimpleGallery.prototype.alignRandom = function() {
+			//이미지 개수 구하기
+			var length = this.$images.length;
+			//이미지 랜덤으로로 나열하는 코드
+			for (var i = 0; i < length; i++) {
+				//x, y좌표를 랜덤을 구하고 있는 코드
+				var x = 400 * Math.random();
+                var y = 400 * Math.random();
+				console.log("x좌표 : " + x);
+				console.log("y좌표 : " + y);
+				this.$images.eq(i).css({
+                    left : x,
+                    top : y
+                });
+			}
+		}
+		//바둑판식 정렬 기능 코드
+		SimpleGallery.prototype.alignGrid = function() {
+			//이미지 개수 구하기
+			var length = this.$images.length;
+			var count = 3;
+			//이미지 바둑판식으로 나열하는 코드
+			for (var i=0; i<length; i++) {
+				//x, y좌표를 구하고 있는 코드
+				var x = (i % count) * 200;
+                var y = parseInt(i / count) * 200;
+				console.log("x좌표 : " + x);
+				console.log("y좌표 : " + y);
+				this.$images.eq(i).css({
+                    left : x,
+                    top : y
+                });
+			}
+		}
+    </script>
+</head>
+<body>
+    <div>
+		<button id="btnHorizontal">
+			가로정렬
+		</button>
+		<button id="btnVertical">
+			세로정렬
+		</button>
+
+		<button id="btnRandom">
+			랜덤정렬
+		</button>
+		<button id="btnGrid">
+			바둑판정렬
+		</button>
+	</div>
+	<div class="image-container" id="container1">
+		<img src="images/1.png" >
+		<img src="images/2.png" >
+		<img src="images/3.png" >
+		<img src="images/4.png" >
+		<img src="images/5.png" >
+		<img src="images/6.png" >
+		<img src="images/7.png" >
+		<img src="images/8.png" >
+	</div>
+
+
+</body>
+</html>

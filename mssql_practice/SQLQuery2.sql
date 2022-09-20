@@ -1,0 +1,28 @@
+ --[1] AAA라는 데이터베이스를 생성
+ CREATE DATABASE AAA;
+ 
+ --[2] AAA라는 데이터베이스에서 작업
+ USE AAA;
+
+ --[3] AAATABLE 생성
+ CREATE TABLE AAATABLE (ID VARCHAR(16) NULL, PW VARCHAR(16) NULL, AGE TINYINT NULL);
+
+ --[4] AAATABLE 자료입력
+ INSERT INTO DBO.AAATABLE
+ VALUES('HONGKILDONG', '123ABC', 30);
+
+ --[5] AAATABLE 자료출력
+ SELECT ID AS 아이디,PW AS 비밀번호, AGE AS 나이
+ FROM DBO.AAATABLE
+ ;
+
+ --[6] AAATABLE 삭제
+ DROP TABLE dbo.AAATABLE 
+ ;
+
+ --[7] 사용가능 DB영역을 MASTER로 변경
+ USE MASTER;
+
+ --[8] 다시 AAA 데이터베이스 삭제
+ DROP DATABASE AAA;
+

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>리터럴 클래스로 다중 탭메뉴 생성하기</title>
+    <style>
+        .tab-menu {
+            list-style: none;
+            height: 80px;
+        }
+        .tab-menu li {
+            width: 100px;
+            height: 40px;
+            background-position-y: 0;
+            text-indent: -1000px;
+            overflow: hidden;
+            display: inline;
+            float: left;
+        }
+        .tab-menu li:hover {
+            background-position-y: -40px;
+        }
+        .tab-menu li.select {
+            background-position-y: -80px;
+            height: 80px;
+        }
+        .tab-menu li.menuitem1 {
+            background-image: url(images/newbtn.bar.1.png);
+        }
+        .tab-menu li.menuitem2 {
+            background-image: url(images/newbtn.bar.2.png);
+        }
+        .tab-menu li.menuitem3 {
+            background-image: url(images/newbtn.bar.3.png);
+        }
+        .tab-menu li.menuitem4 {
+            background-image: url(images/newbtn.bar.4.png);
+        }
+        .tab-menu li.menuitem5 {
+            background-image: url(images/newbtn.bar.5.png);
+        }
+        .tab-menu li.menuitem6 {
+            background-image: url(images/newbtn.bar.6.png);
+        }
+    </style>
+
+
+    <script src="libs/jquery-3.5.1.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            tabMenu1.init();
+            tabMenu1.initEvent();
+            tabMenu2.init();
+            tabMenu2.initEvent();
+        });
+
+        //리터럴 클래스로 정의
+        var tabMenu1 = {
+            //3개의 멤버변수 초기화
+            $tabMenu:null,
+            $menuItems:null,
+            $selectMenuItem:null,
+
+            //요소 값지정하는 메서드
+            init:function(){
+                this.$tabMenu = $("#tabMenu1");
+                this.$menuItems = this.$tabMenu.find("li");
+            },
+
+            //이벤트 등록
+            initEvent:function(){
+                var objThis = this;
+                this.$menuItems.on("click", function(){
+                    objThis.setSelectItem($(this));
+                });
+            },
+            //$menuItem에 해당하는 메뉴 아이템을 선택하기
+            setSelectItem:function($menuItem){
+                //기존에 선택한 메뉴가 있다면....삭제해라
+                if(this.$selectMenuItem) {
+                    this.$selectMenuItem.removeClass("select");
+                }
+                //신규 아이템으로 설정하시오.
+                this.$selectMenuItem = $menuItem;
+                this.$selectMenuItem.addClass("select");
+            }
+        }
+        //리터럴 클래스로 정의
+        var tabMenu2 = {
+            //3개의 멤버변수 초기화
+            $tabMenu:null,
+            $menuItems:null,
+            $selectMenuItem:null,
+
+            //요소 값지정하는 메서드
+            init:function(){
+                this.$tabMenu = $("#tabMenu2");
+                this.$menuItems = this.$tabMenu.find("li");
+            },
+
+            //이벤트 등록
+            initEvent:function(){
+                var objThis = this;
+                this.$menuItems.on("click", function(){
+                    objThis.setSelectItem($(this));
+                });
+            },
+            //$menuItem에 해당하는 메뉴 아이템을 선택하기
+            setSelectItem:function($menuItem){
+                //기존에 선택한 메뉴가 있다면....삭제해라
+                if(this.$selectMenuItem) {
+                    this.$selectMenuItem.removeClass("select");
+                }
+                //신규 아이템으로 설정하시오.
+                this.$selectMenuItem = $menuItem;
+                this.$selectMenuItem.addClass("select");
+            }
+        }
+        // 결론은 오브젝트 리터럴 방식은 오로지 하나의 인스턴스만 가진다.{}에 프로퍼티, 메서드
+        // 가 존재하므로 정의함과 동시에 인스턴스가 생성된다.따로 우리가 new연산자를 사용하지
+        // 않아도 하나의 인스턴스는 만들어지지만 여러개를 만들지 못한다.
+        // 오브젝트 리터럴 방식은 주 용도는 여러개의 데이터를 포장용으로 사용하거나 함수에 매개
+        // 변수 값으로 줄 때 이 방식이 유용하다.
+    </script>
+</head>
+<body>  
+    <p>첫 번째 탭메뉴</p>  
+    <ul class="tab-menu" id="tabMenu1">
+        <li class="menuitem1">google</li>
+        <li class="menuitem2">facebook</li>
+        <li class="menuitem3">pinterest</li>
+        <li class="menuitem4">twitter</li>
+        <li class="menuitem5">aribnb</li>
+        <li class="menuitem6">path</li>
+    </ul>
+    <p>두 번째 탭메뉴</p>  
+    <ul class="tab-menu" id="tabMenu2">
+        <li class="menuitem1">google</li>
+        <li class="menuitem2">facebook</li>
+        <li class="menuitem3">pinterest</li>
+        <li class="menuitem4">twitter</li>
+        <li class="menuitem5">aribnb</li>
+        <li class="menuitem6">path</li>
+    </ul>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>콜백함수-3(콜백함수 풀이)</title>
+    <script>
+        //콜백 함수를 선언하고 호출하는 형태
+        function add(n1, n2, callback){
+            var temp = n1 + n2;
+            callback(temp);
+            document.write("add()함수" + temp + "<br/>");
+        }
+        function result(value){
+            document.write("result()함수 결과 : " + value + "<br/>");
+        }        
+        add(50, 100, result);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

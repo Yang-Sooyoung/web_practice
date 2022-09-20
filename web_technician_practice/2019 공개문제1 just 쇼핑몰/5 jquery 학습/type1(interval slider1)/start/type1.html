@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>basic :: License jQuery</title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic">
+<style>
+body {
+	margin: 20px;
+	padding: 20px;
+	line-height: 1;
+	font-family: "Open Sans", sans-serif;
+	font-size: 1em;
+	background-color: #f1f1f1;
+	color: #555;
+}
+ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+a {
+	text-decoration: none;
+	color: #000;
+}
+.title {
+	margin: 0;
+	padding: 0;
+	font-size: 1.5em;
+	font-weight: 300;
+	color: #555;
+}
+.container {
+	margin-top: 35px;
+}
+.timer_gallery {
+	position: relative;
+	width: 467px;
+	height: 570px;
+}
+.timer_gallery li {
+	position: absolute;
+	left: 0;
+	top: 0;
+	opacity: 0;
+	transition: opacity 0.4s;
+}
+.timer_gallery li.active {
+	opacity: 1;
+}
+</style>
+<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+<script>
+	$(function() {
+		var n = 0;
+		$(".timer_gallery li").eq(n).addClass("active");
+
+		setInterval(function() {
+			if(n < 2) { // 0, 1, 2
+				n = n + 1;
+			}
+			else {
+				n = 0;
+			}
+
+			$(".timer_gallery li").removeClass("active");
+			$(".timer_gallery li").eq(n).addClass("active");
+		}, 3000);
+	})
+</script>
+</head>
+
+<body>
+<h1 class="title">basic :: License jQuery</h1>
+<div class="container">
+	<div class="timer_gallery">
+		<ul>
+			<li><img src="images/image1.jpg" alt="image1"></li>
+			<li><img src="images/image2.jpg" alt="image2"></li>
+			<li><img src="images/image3.jpg" alt="image3"></li>
+		</ul>
+	</div>
+</div>
+</body>
+</html>

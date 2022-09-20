@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>사용자 정의 애니메이션 만들기-1</title>
+    <style>
+        * {
+            font-size: 25px;
+        }
+        #target {
+            border: 1px solid black;
+            width: 400px;
+            height: 300px;
+            text-align: center;
+        }       
+        #kor {
+            width: 400px;
+            height: 300px;
+        }
+    </style>
+    <script src="libs/jquery-3.5.1.min.js"></script>
+    <!-- 이징 함수를 사용하기 위해서 라이브러리를 가져옴 -->
+    <script src="libs/jquery.easing.1.3.js"></script>
+    <script>
+        $(document).ready(function(){
+            //움직일 대상 찾아오기
+            var $img1 = $("#target");            
+
+            //나타나는 효과
+            // 투명도 값을 1로 설정함.
+            $("#show").on("click", function(){            
+                $img1.animate({
+                   opacity : 1    
+                }, 6000, "easeInQuint", function(){
+                    alert("fadeIn완료");
+                });                          
+            });
+
+            //사라지는 효과
+            // 투명도 값을 0으로 설정함.
+            $("#hide").on("click", function(){            
+                $img1.animate({
+                   opacity : 0    
+                }, 6000, "easeInQuint", function(){
+                    alert("fadeOut완료");
+                });                               
+            });
+        });
+    </script>
+</head>
+<body>
+    <div id="target">
+        <img id="kor" src="images/korea.png">
+    </div>
+    <div>       
+        <button id="show">show</button> 
+        <button id="hide">hide</button>
+    </div>
+</body>
+</html>

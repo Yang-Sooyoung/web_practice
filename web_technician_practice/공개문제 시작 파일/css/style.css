@@ -1,0 +1,25 @@
+@charset "utf-8";
+
+/* Reset CSS */
+body, h1, h2, h3, h4, h5, h6, p, ul, ol {
+	margin: 0;
+	padding: 0;
+}
+ul, ol {
+	list-style: none;
+}
+a {
+	text-decoration: none;
+}
+img {
+	vertical-align: top;
+}
+
+/* 가이드에 언급된 CSS */
+body {
+	background-color: #fff;
+	color: #888;
+}
+a {
+	color: #888;
+}

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 위 3개의 메타 태그는 *반드시* head 태그의 처음에 와야합니다; 어떤 다른 콘텐츠들은 반드시 이 태그들 *다음에* 와야 합니다 -->
+    <title>01_다양한 컴포넌트(글리피콘, 드랍다운, 네비게이션)의 활용</title>
+
+    <!-- 합쳐지고 최소화된 최신 CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+
+    <!-- IE8 에서 HTML5 요소와 미디어 쿼리를 위한 HTML5 shim 와 Respond.js -->
+    <!-- WARNING: Respond.js 는 당신이 file:// 을 통해 페이지를 볼 때는 동작하지 않습니다. -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <style>
+      /*span{
+        background-color: yellow;
+      }*/
+      div{
+        background-color: lightblue;
+      }
+    </style>
+  </head>
+  <body>
+    <span>인라인요소인 span</span>
+    <div>블록요소인 div</div>
+
+    <span class="glyphicon glyphicon-align-justify"></span>
+
+    <button type="button" class="btn btn-warning btn-sm">
+      <span class="glyphicon glyphicon-star" aria-hidden="true"></span> Star
+    </button>
+
+    <h2>드랍다운 요소의 활용</h2>
+    <div class="dropdown">
+      <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+        Dropdown
+        <span class="caret"></span>
+      </button>
+      <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+        <li role="presentation" class="dropdown-header">
+          <a role="menuitem" tabindex="-1" href="http://www.naver.com" target="_blank">브라우저의 종류</a>
+        </li>
+        <li role="presentation">
+          <a role="menuitem" tabindex="-1" href="#">구글크롬</a>
+        </li>
+        <li role="presentation">
+          <a role="menuitem" tabindex="-1" href="#">인터넷 익스플로러</a>
+        </li>
+        <li role="presentation">
+          <a role="menuitem" tabindex="-1" href="#">사파리</a>
+        </li>
+        <li role="presentation" class="divider"></li>
+        <li role="presentation" class="dropdown-header">
+          <a role="menuitem" tabindex="-1" href="http://www.naver.com" target="_blank">커피메뉴</a>
+        </li>
+        <li role="presentation">
+          <a role="menuitem" tabindex="-1" href="#">아메리카노</a>
+        </li>
+        <li role="presentation">
+          <a role="menuitem" tabindex="-1" href="#">카페라테</a>
+        </li>
+        <li role="presentation">
+          <a role="menuitem" tabindex="-1" href="#">카푸치노</a>
+        </li>
+      </ul>
+    </div>
+    <h2>네비게이션 탭형</h2>
+    <ul class="nav nav-tabs nav-justified">
+      <li role="presentation" class="active"><a href="#">Home</a></li>
+      <li role="presentation"><a href="#">Profile</a></li>
+      <li role="presentation"><a href="#">Messages</a></li>
+    </ul>
+    <h2>네비게이션  알약형</h2>
+    <ul class="nav nav-pills nav-justified">
+      <li role="presentation" class="active"><a href="#">Home</a></li>
+      <li role="presentation"><a href="#">Profile</a></li>
+      <li role="presentation"><a href="#">Messages</a></li>
+    </ul>
+    <h2>네비게이션  수직 알약형</h2>
+    <ul class="nav nav-pills nav-stacked">
+      <li role="presentation" class="active"><a href="#">Home</a></li>
+      <li role="presentation"><a href="#">Profile</a></li>
+      <li role="presentation"><a href="#">Messages</a></li>
+    </ul>
+    <h2>네비게이션 수직형 탭형</h2>
+    <ul class="nav nav-tabs nav-stacked">
+      <li role="presentation" class="active"><a href="#">Home</a></li>
+      <li role="presentation"><a href="#">Profile</a></li>
+      <li role="presentation"><a href="#">Messages</a></li>
+    </ul>
+
+    <h2>w3school.com에서 실제 구현되는 탭형의 예제코드</h2>
+    <ul class="nav nav-tabs">
+      <li class="active"><a data-toggle="tab" href="#home">Home</a></li>
+      <li><a data-toggle="tab" href="#menu1">Menu 1</a></li>
+      <li><a data-toggle="tab" href="#menu2">Menu 2</a></li>
+    </ul>
+
+    <div class="tab-content">
+      <div id="home" class="tab-pane fade in active">
+        <h3>HOME</h3>
+        <p>Some content.</p>
+      </div>
+      <div id="menu1" class="tab-pane fade">
+        <h3>Menu 1</h3>
+        <p>Some content in menu 1.</p>
+      </div>
+      <div id="menu2" class="tab-pane fade">
+        <h3>Menu 2</h3>
+        <p>Some content in menu 2.</p>
+      </div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <!-- jQuery (부트스트랩의 자바스크립트 플러그인을 위해 필요합니다) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <!-- 모든 컴파일된 플러그인을 포함합니다 (아래), 원하지 않는다면 필요한 각각의 파일을 포함하세요 -->
+   <!-- 합쳐지고 최소화된 최신 자바스크립트 -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+  </body>
+</html>

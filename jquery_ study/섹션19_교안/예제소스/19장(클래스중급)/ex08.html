@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>함수 단위의 코딩</title>
+    <style>
+        .tab-menu {
+            list-style: none;
+            height: 80px;
+        }
+        .tab-menu li {
+            width: 100px;
+            height: 40px;
+            background-position-y: 0;
+            text-indent: -1000px;
+            overflow: hidden;
+            display: inline;
+            float: left;
+        }
+        .tab-menu li:hover {
+            background-position-y: -40px;
+        }
+        .tab-menu li.select {
+            background-position-y: -80px;
+            height: 80px;
+        }
+        .tab-menu li.menuitem1 {
+            background-image: url(images/newbtn.bar.1.png);
+        }
+        .tab-menu li.menuitem2 {
+            background-image: url(images/newbtn.bar.2.png);
+        }
+        .tab-menu li.menuitem3 {
+            background-image: url(images/newbtn.bar.3.png);
+        }
+        .tab-menu li.menuitem4 {
+            background-image: url(images/newbtn.bar.4.png);
+        }
+        .tab-menu li.menuitem5 {
+            background-image: url(images/newbtn.bar.5.png);
+        }
+        .tab-menu li.menuitem6 {
+            background-image: url(images/newbtn.bar.6.png);
+        }
+    </style>
+
+
+    <script src="libs/jquery-3.5.1.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            var tab1 = tabMenu("#tabMenu1");
+            tab1.setSelectItemAt(1);
+            
+            var tab2 = tabMenu("#tabMenu2");
+            tab2.setSelectItemAt(2);
+        });
+
+        //tabMenu 함수
+        function tabMenu(selector) {
+            var $tabMenu =null;
+            var $menuItems=null;
+            var $selectMenuItem=null;
+
+            // 요소 초기화
+            function init(selector){
+                $tabMenu = $(selector);
+                $menuItems = $tabMenu.find("li");
+            }
+            // 이벤트 등록
+            function initEvent(){
+                $menuItems.on("click",function(){
+                    setSelectItem($(this));
+                });
+            }
+            // $menuItem에 해당하는 메뉴 아이템 선택하기
+            function setSelectItem($menuItem){
+                // 기존 선택메뉴 아이템을 비활성화 처리하기
+                if($selectMenuItem){
+                    $selectMenuItem.removeClass("select");
+                }
+
+                // 신규 아이템 활성화 처리하기
+                $selectMenuItem = $menuItem;
+                $selectMenuItem.addClass("select");
+            }
+
+            // index에 해당하는 메뉴 아이템 선택하기
+            function setSelectItemAt(index){
+                // setSelectItem() 호출
+                setSelectItem($menuItems.eq(index));
+            }
+
+            // 초기화 함수 호출
+            init(selector);
+            initEvent();
+
+            //기능 리턴-중요하다.
+            return {
+                "setSelectItemAt":setSelectItemAt
+            }
+        }
+       
+    </script>
+</head>
+<body>  
+    <p>첫 번째 탭메뉴</p>  
+    <ul class="tab-menu" id="tabMenu1">
+        <li class="menuitem1">google</li>
+        <li class="menuitem2">facebook</li>
+        <li class="menuitem3">pinterest</li>
+        <li class="menuitem4">twitter</li>
+        <li class="menuitem5">aribnb</li>
+        <li class="menuitem6">path</li>
+    </ul>    
+    <p>두 번째 탭메뉴</p>  
+    <ul class="tab-menu" id="tabMenu2">
+        <li class="menuitem1">google</li>
+        <li class="menuitem2">facebook</li>
+        <li class="menuitem3">pinterest</li>
+        <li class="menuitem4">twitter</li>
+        <li class="menuitem5">aribnb</li>
+        <li class="menuitem6">path</li>
+    </ul>    
+</body>
+</html>

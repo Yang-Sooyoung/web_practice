@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>01_그리드의 다양한 옵션의 활용</title>
+
+
+     <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <style>
+      /*div{
+        border:1px solid red;
+      }*/
+    @media (min-width: 768px) and (max-width: 991px) {
+        #side{
+          height:340px;
+        }
+    }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+    <!-- div.row>div.col-md-12>h1{Good Soup restaurant} -->
+      <div class="row">
+        <div class="col-md-12 bg-info text-center text-uppercase img-rounded">
+          <h1 class="text-muted">Good Soup restaurant</h1>
+        </div>
+      </div>
+      <!-- div.row>div.col-md-3.bg-danger+div.col-md-9.bg-warning -->
+      <div class="row">
+        <div class="col-md-2 col-sm-6 bg-danger img-rounded" id="side">
+        <!-- ul>li*4>a[href="#"]>{list$} -->
+          <ul class="list-unstyled text-center">
+            <li><a href="#">파스타</a></li>
+            <li><a href="#">피자</a></li>
+            <li><a href="#">샐러드</a></li>
+            <li><a href="#">음료</a></li>
+          </ul>
+        </div>
+        <div class="col-md-8 col-sm-6 bg-warning img-rounded">
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique perspiciatis magnam, dicta accusantium quod vel nihil cum expedita officia voluptatibus possimus voluptate harum explicabo placeat nam nisi autem commodi, fugiat est vitae magni. Laborum numquam doloremque optio voluptas, reprehenderit, eaque sed quam, doloribus natus aliquid odio at id quas exercitationem!</p>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique perspiciatis magnam, dicta accusantium quod vel nihil cum expedita officia voluptatibus possimus voluptate harum explicabo placeat nam nisi autem commodi, fugiat est vitae magni. Laborum numquam doloremque optio voluptas, reprehenderit, eaque sed quam, doloribus natus aliquid odio at id quas exercitationem!</p>
+        </div>
+        <div class="col-md-2 col-sm-12 bg-primary img-rounded">
+          <ul class="list-unstyled text-center">
+            <li>메인쉐프 멤버</li>
+            <li>김주영</li>
+            <li>한슬기</li>
+            <li>김주한</li>
+            <li>이한별</li>
+          </ul>
+        </div>
+      </div>
+      <hr>
+      <div class="row">
+        <div class="col-md-12 text-center">
+          <h3>good soup 레스토랑을 이용해 주셔서 감사합니다.</h3>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+   <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  </body>
+</html>

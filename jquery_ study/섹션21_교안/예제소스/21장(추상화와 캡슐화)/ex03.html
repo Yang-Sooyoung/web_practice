@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>캡슐화 예제</title>
+	<style>
+		.tab-menu {
+			list-style: none;
+			height:80px;
+		}
+		.tab-menu li {
+			width:99px;
+			height:40px;
+			background-position-y:0;
+			text-indent: -1000px;
+			overflow: hidden;
+            display: inline;
+            float: left;
+		}
+		.tab-menu li:hover {
+			background-position-y: -40px;
+		}
+		.tab-menu li.select {
+			background-position-y: -80px;
+			height:80px;
+		}
+		.tab-menu li.menuitem1 {
+			background-image: url(images/newbtn.bar.1.png);
+		}
+		.tab-menu li.menuitem2 {
+			background-image: url(images/newbtn.bar.2.png);
+		}
+		.tab-menu li.menuitem3 {
+			background-image: url(images/newbtn.bar.3.png);
+		}
+		.tab-menu li.menuitem4 {
+			background-image: url(images/newbtn.bar.4.png);
+		}
+		.tab-menu li.menuitem5 {
+			background-image: url(images/newbtn.bar.5.png);
+		}
+		.tab-menu li.menuitem6 {
+			background-image: url(images/newbtn.bar.6.png);
+		}
+    </style>
+    <script src="libs/jquery-3.5.1.min.js"></script>   
+    <script>
+        $(document).ready(function(){
+			//첫 번째 탭메뉴 인스턴스 생성
+			var tab1 = new TabMenu("#tabMenu1");        
+			tab1.setSelectItemAt(1);
+
+			//두 번째 탭메뉴 인스턴스 생성
+			var tab2 = new TabMenu("#tabMenu2");
+			tab2.setSelectItemAt(2);
+
+			//자바스크립트에서는 캡슐화를 해주는 접근제어자가 문법적으로 지원하지 
+			//않는다.하여 아무리 _를 붙여도 외부에서 접근이 가능하다.
+			//자바스크립트 개발자들은 프로퍼티와 메서드에 _가 붙어있다면 무언의 약속처럼
+			//외부에서 접근하지 마라라고 인식을 한다.
+			//그래서 개발자들은 _가 붙어있는 것은 외부에서 절대로 접근하지 아니한다.
+			//자바스크립트에서는 기본적으로 public은 지원하지만 private, protected는 지원
+			//하지 아니한다.하여 아래와 같이 흉내를 내는 것이다.
+			//tab1._$menuItems;
+			//tab1._initEvent()
+
+        });
+		//캡슐화 
+		//탭메뉴 클래스 정의
+		function TabMenu(selector){
+			//은닉화를 위한 프로퍼티 선언
+			this._$tabMenu = null;
+			this._$menuItems = null;
+			this._$selectMenuItem = null;
+
+			//요소 초기화와 이벤트 등록 메서드 호출하기
+			this._init(selector);
+			this._initEvent();
+		}
+		//메서드 작성
+		//요소 초기화 메서드
+		TabMenu.prototype._init = function(selector) {
+			this._$tabMenu = $(selector);
+			this._$menuItems = this._$tabMenu.find("li");
+		}
+		//이벤트 등록 메서드
+		TabMenu.prototype._initEvent = function() {
+			var objThis = this;
+			this._$menuItems.on("click", function(){
+				objThis.setSelectItem($(this));
+			});
+		}
+		//$menuItems에 해당하는 메뉴 아이템 선택하는 메서드
+		TabMenu.prototype.setSelectItem = function($menuItem) {
+			//기존 선택 메뉴 비활성화 처리하기
+			if(this._$selectMenuItem) {
+				this._$selectMenuItem.removeClass("select");
+			}
+			//신규 아이템 활성화 처리하기
+			this._$selectMenuItem = $menuItem;
+			this._$selectMenuItem.addClass("select");
+		}
+		//인덱스에 해당하는 메뉴 아이템 선택하기
+		TabMenu.prototype.setSelectItemAt = function(index) {
+			var $menuItem = this._$menuItems.eq(index);
+			
+			//기존 메서드를 재사용하기
+			this.setSelectItem($menuItem);
+		}		
+    </script>
+</head>
+<body>
+    <p>첫 번째 탭메뉴</p>
+		<ul class="tab-menu" id="tabMenu1">
+			<li class="menuitem1">google</li>
+			<li class="menuitem2">facebook</li>
+			<li class="menuitem3">pinterest</li>
+			<li class="menuitem4">twitter</li>
+			<li class="menuitem5">airbnb</li>
+			<li class="menuitem6">path</li>
+		</ul>
+		<p>두 번째 탭메뉴</p>
+		<ul class="tab-menu" id="tabMenu2">
+			<li class="menuitem1">google</li>
+			<li class="menuitem2">facebook</li>
+			<li class="menuitem3">pinterest</li>
+			<li class="menuitem4">twitter</li>
+			<li class="menuitem5">airbnb</li>
+			<li class="menuitem6">path</li>
+		</ul>
+</body>
+</html>

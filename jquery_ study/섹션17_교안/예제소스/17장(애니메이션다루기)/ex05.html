@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>options활용</title>
+    <style>
+        * {
+            font-size: 25px;
+        }
+        #target {
+            border: 1px solid black;
+            width: 600px;
+            height: 500px;
+            text-align: center;
+        }
+        #info {
+            border: 1px solid black;
+            width: 600px;
+            height: 150px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        #kor {
+            width: 600px;
+            height: 500px;
+        }
+    </style>
+    <script src="libs/jquery-3.5.1.min.js"></script>
+    <!-- 이징 함수를 사용하기 위해서 라이브러리를 가져옴 -->
+    <script src="libs/jquery.easing.1.3.js"></script>
+    <script>
+        $(document).ready(function(){
+            //움직일 대상 찾아오기
+            var $img1 = $("#target");
+            var $info = $("#info");
+
+            //사라지는 효과
+            //진행시간,이징함수, 애니메이션의 진행정보를 알 수 있는 progress옵션을 리터럴객체로
+            //묶은 옵션 정보를 값으로 하여 hide()메서드 호출을 하고 있다.
+            $("#hide").on("click", function(){
+                $img1.hide({
+                    duration : 6000,
+                    easing : "linear",
+
+                    //Promise객체는 비동기 처리가 성공 혹은 실패를 하였을 때, 상태정보와 처리 
+                    //종료 후에 실행될 콜백함수를 담고 있는 객체이다.
+                    //progress : 형태 -> function(Promise animation, Number progress, Number remainingMs)
+                    progress : function(animation, progress, remainingMs){
+                        //진행률을 퍼센트 단위 계산한다.
+                        var persent = parseInt(progress * 100);
+                        //남은 시간을 초단위로 바꾸고 소숫점 자리를 2자리로 표기하도록 함.
+                        var reMs = (remainingMs/1000).toFixed(2);
+                        //투명도 구하기
+                        var opar = parseFloat($img1.css("opacity")).toFixed(2);
+                        
+                        var str = "진행률 : " + persent + "%" + "<br/> 남은 시간 : " + reMs + "초 <br/>"
+                                  + "투명도 : " + opar;
+                        $info.html(str);
+                    }
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+    <div id="info">
+    </div>
+
+    <div id="target">
+        <img id="kor" src="images/korea.png">
+    </div>
+    <div>        
+        <button id="hide">hide</button>
+    </div>
+
+</body>
+</html>
